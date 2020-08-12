@@ -19,7 +19,7 @@ pipeline {
         sh 'packer build packer.json'
       }
     }
-  }
+  }  
   post {
     success {
         build quietPeriod: 0, wait: false, job: 'abdul-jenkins-lab-2-tf'  
