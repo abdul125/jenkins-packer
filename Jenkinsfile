@@ -22,7 +22,7 @@ pipeline {
   }  
   post {
     success {
-        build quietPeriod: 0, wait: false, job: 'jenkins-terraform'  
+        build quietPeriod: 0, wait: false, job: 'a-jenkins-tf'  
     }
   }
 }
