@@ -18,7 +18,7 @@ start:
 		-w /$$(basename $$PWD) \
 		--name $$(basename $$PWD) \
 		--hostname $$(basename $$PWD) \
-		bryandollery/terraform-packer-aws-alpine bash
+		bryandollery/terraform-packer-aws-alpine
 
 
 stop:
