@@ -1,10 +1,12 @@
 pipeline {
+
   agent {
     docker {
       image "bryandollery/terraform-packer-aws-alpine"
       args "-u root --entrypoint=''"
     }
   }
+
   environment {
     CREDS = credentials('abdul-aws-creds')
     AWS_ACCESS_KEY_ID = "${CREDS_USR}"
@@ -12,6 +14,7 @@ pipeline {
     OWNER = 'abdul'
     PROJECT_NAME = 'web-server'
   }
+
   stages {
     
     stage("destory") {
