@@ -13,16 +13,13 @@ pipeline {
     PROJECT_NAME = 'web-server'
   }
   stages {
-    stage("build") {
+    
+    stage("destory") {
       steps {
-        sh 'ls -alht && docker ps -a && which packer'
-        sh 'packer build packer.json'
+        sh 'time terraform destroy -auto-approve'
       }
     }
+    
   }  
-  post {
-    success {
-        build quietPeriod: 0, wait: false, job: 'a-jenkins-tf'  
-    }
-  }
+
 }
