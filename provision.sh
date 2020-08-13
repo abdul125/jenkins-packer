@@ -19,7 +19,7 @@ Description=abdul nginx
 After=docker.service
 [Service]
 Type=simple
-ExecStart=sudo docker container run -d --name nginx2020 -p 80:80 --restart=always -v /home/ubuntu/api/:/usr/share/nginx/index:ro nginx
+ExecStart=sudo docker container run -d --name nginx2020 -p 80:80 --restart=always -v /home/ubuntu/api/:/usr/share/nginx/www:ro nginx
 [Install]
 WantedBy=multi-user.target
 EOF
