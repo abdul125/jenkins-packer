@@ -25,7 +25,7 @@ WantedBy=multi-user.target
 EOF
 ls -Alth
 pwd
-sudo chmod a-w /etc/systemd/system/nginx.service
+sudo chmod a-xw /etc/systemd/system/nginx.service
 sudo systemctl daemon-reload
 sudo systemctl enable nginx
 sudo systemctl start nginx
