@@ -2,8 +2,13 @@
 sudo apt update -y && sudo apt install -y curl vim jq git make docker.io
 sudo usermod -aG docker ubuntu
 
+
+# Create directory to be served
+sudo mkdir -p /home/ubuntu/api # if u only have this w/o the following lines, you ll get "cannot create /home/ubuntu/api/index.html: Permission denied"
+sudo chmod a+rwx /home/ubuntu/api
+sudo chown ubuntu:ubuntu /home/ubuntu/api
+
 # get the nginx working
-sudo mkdir -p /home/ubuntu/api
 sudo touch /etc/systemd/system/nginx.service
 sudo chmod a+rw /etc/systemd/system/nginx.service
 sudo docker pull nginx
