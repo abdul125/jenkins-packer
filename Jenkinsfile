@@ -5,7 +5,6 @@ pipeline {
       args "-u root --entrypoint=''"
     }
   }
-
   environment {
     CREDS = credentials('abdul-aws-creds')
     AWS_ACCESS_KEY_ID = "${CREDS_USR}"
@@ -13,15 +12,17 @@ pipeline {
     OWNER = 'abdul'
     PROJECT_NAME = 'web-server'
   }
-
   stages {
-    
-    stage("destory") {
+    stage("build") {
       steps {
-        sh 'time terraform destroy -auto-approve'
+        sh 'ls -alht && docker ps -a && which packer'
+        sh 'packer build packer.json'
       }
     }
-    
   }  
-
+  post {
+    success {
+        build quietPeriod: 0, wait: false, job: 'a-jenkins-tf'  
+    }
+  }
 }
